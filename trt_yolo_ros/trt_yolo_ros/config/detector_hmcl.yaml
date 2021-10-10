@@ -1,9 +1,9 @@
 # how often run the yolo?
-publish_rate: 10
+publish_rate: 2
 
 # Would you like to publish visualization, might slow don the process
-publish_image: false
-print_outcome: false
+publish_image: true
+print_outcome: true
 # paths to all of the files
 weights_path: "/home/hmcl/data/perception_ws/src/trt_yolo_ros/trt_yolo_ros/weights"
 config_path: "/home/hmcl/data/perception_ws/src/trt_yolo_ros/trt_yolo_ros/config"
@@ -25,3 +25,5 @@ postprocessor_cfg: "yolo_postprocess_config.json"
 
 # Device to run the inference on. Sorry, no multiple devices for now
 cuda_device: 0
+IMAGE_PATH: "/home/hmcl/data/perception_ws/src/trt_yolo_ros/trt_yolo_ros/IMAGE/"
+TEXT_PATH: "/home/hmcl/data/perception_ws/src/trt_yolo_ros/trt_yolo_ros/TEXT/"

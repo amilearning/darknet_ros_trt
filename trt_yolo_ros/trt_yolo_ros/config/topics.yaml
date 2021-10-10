@@ -2,12 +2,12 @@ publisher:
     bounding_boxes:
         topic: /trt_yolo_ros/bounding_boxes
         queue_size: 10
-        latch: false
+        latch: true
 
     image:
         topic: /trt_yolo_ros/bounding_boxes/image
         queue_size: 1
-        latch: false
+        latch: true
 
 subscriber:
     image:

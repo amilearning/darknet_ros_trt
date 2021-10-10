@@ -4,8 +4,10 @@ import os
 
 import cv2
 import numpy as np
+import datetime
 
 from utils import read_json
+
 
 
 class PostprocessYOLO(object):
@@ -22,6 +24,7 @@ class PostprocessYOLO(object):
         nms_threshold,
         input_resolution,
         class_num,
+        IMAGE_PATH
     ):
         """Initialize with all values that will be kept when processing several frames.
         Assuming 3 outputs of the network in the case of (large) YOLOv3.
@@ -43,6 +46,8 @@ class PostprocessYOLO(object):
         postprocessor_cfg = read_json(config_path)[yolo_type]
         self.masks = postprocessor_cfg["masks"]
         self.anchors = postprocessor_cfg["anchors"]
+        self.IMAGE_PATH = IMAGE_PATH
+        IMAGE_PATH_ = IMAGE_PATH
         self.output_shapes = [
             tuple([a, b, input_resolution[0] // c, input_resolution[1] // d,])
             for a, b, c, d in postprocessor_cfg["output_shapes"]
@@ -306,4 +311,17 @@ class Visualization(object):
                 self.thickness,
                 cv2.LINE_AA,
             )
+            
+            cur_time = datetime.datetime.now().strftime('%Y. %m. %d. %H:%M')
+            cv2.putText(
+                image_raw,
+                cur_time,
+                (380, 400),
+                self.font,
+                self.font_scale,
+                (0, 0, 0),
+                self.thickness,
+                cv2.LINE_AA,
+            )
+           
         return image_raw

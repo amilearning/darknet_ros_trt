@@ -1,3 +1,8 @@
-dog
-soldier
-labcoat
+Dog1
+Dog2
+Soldier1
+Soldier2
+Soldier3
+Civilian1
+Civilian2
+Landing
